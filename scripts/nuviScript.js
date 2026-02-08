@@ -1,7 +1,3 @@
-// gallery.js - vertical scroll gallery (camelCase naming)
-// This script wires thumbnails (data-gallery) to open the vertical modal,
-// builds slides, hides scrollbar via CSS, and ensures the close button works.
-
 document.addEventListener('DOMContentLoaded', () => {
     const galleryThumbs = document.querySelectorAll('.galleryThumb');
     const imageModal = document.getElementById('imageModal');
@@ -151,6 +147,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // optional programmatic API
     window.verticalGalleryAPI = { open: openModal, close: closeModal, goNext, goPrev };
 });

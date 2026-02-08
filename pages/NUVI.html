@@ -26,7 +26,6 @@
     <h1 id="title">NUVI</h1>
     <!-- MOCK-UP -->
     <div>
-        <!-- CHANGED: forward slashes -->
         <img src="../images/nuvi/Splash.png" id="mockUp" alt="Splash">
         <p id="mockUpDescription">A mobile web-based navigation system with augmented reality and optical character
             recognition</p>
@@ -41,20 +40,17 @@
             <div class="col-lg-3 col-12">
             </div>
 
-            <!-- CHANGED: fixed typo 'sudetnSide' -> studentSideThumb, added data-gallery (list of images) -->
             <div class="col-lg-3 col-12">
                 <a id="studentSideThumb" class="galleryThumb" href="#"
-                   data-gallery="../images\nuvi\Login.png, ../images\nuvi\Signup.png, ../images\nuvi\Student_home.png, ../images\nuvi\Student_search.png, ../images\nuvi\Student_calendar.png, ../images\nuvi\Student_AR.png, ../images\nuvi\Student_AR-1.png, ../images\nuvi\Student_COR.png">
-                    <!-- CHANGED: use class instead of duplicate id -->
+                    data-gallery="../images\nuvi\Login.png, ../images\nuvi\Signup.png, ../images\nuvi\Student_home.png, ../images\nuvi\Student_search.png, ../images\nuvi\Student_calendar.png, ../images\nuvi\Student_AR.png, ../images\nuvi\Student_AR-1.png, ../images\nuvi\Student_COR.png">
                     <img src="../images/nuvi/Student_home.png" class="studentSideImage" alt="Student Side">
                 </a>
                 <p class="tagText">Student/Faculty Side</p>
             </div>
 
-            <!-- CHANGED: fixed id to guestSideThumb and data-gallery -->
             <div class="col-lg-3 col-12">
                 <a id="guestSideThumb" class="galleryThumb" href="#"
-                   data-gallery="../images\nuvi\Login.png, ../images\nuvi\Guest_home.png, ../images\nuvi\Guest_search.png, ../images\nuvi\Guest_profile.png">
+                    data-gallery="../images\nuvi\Login.png, ../images\nuvi\Guest_home.png, ../images\nuvi\Guest_search.png, ../images\nuvi\Guest_profile.png">
                     <img src="../images/nuvi/Guest_home.png" class="studentSideImage" alt="Guest Side">
                 </a>
                 <p class="tagText">Guest Side</p>
@@ -105,18 +101,11 @@
         <div id="footer"> </div>
     </footer>
 
-    <!-- =====================================================
-         ADDED: Vertical Gallery Modal (keeps rest of page intact)
-         - no visible scrollbar
-         - no arrow buttons
-         - caption text bottom-left inside each photo (no background)
-         - overlay clickable to close
-         ===================================================== -->
     <div id="imageModal" class="imageModal" aria-hidden="true" role="dialog" aria-modal="true">
         <div class="modalOverlay" id="modalOverlay" tabindex="-1"></div>
 
         <div class="modalContent" role="document" aria-label="Image gallery">
-            <!-- close button (works) -->
+            <!-- CLOSE BUTTON -->
             <button id="modalCloseBtn" class="modalCloseBtn" aria-label="Close gallery">&times;</button>
 
             <!-- VERTICAL GALLERY VIEWPORT -->
@@ -126,7 +115,6 @@
         </div>
     </div>
 
-    <!-- CHANGED: external JS -->
     <script src="../scripts/nuviScript.js" defer></script>
 </body>
 

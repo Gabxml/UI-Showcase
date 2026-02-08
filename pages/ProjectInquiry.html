@@ -21,7 +21,7 @@
         <h2 class="text-center mb-4 formTitle">Project Inquiry</h2>
 
         <form id="projectInquiryForm" class="inquiryForm p-4 rounded" novalidate>
-            <!-- Full name -->
+            <!-- NAME -->
             <div class="mb-3">
                 <label for="fullName" class="form-label">Full Name *</label>
                 <input type="text" id="fullName" name="fullName" class="form-control" required minlength="2"
@@ -29,7 +29,7 @@
                 <div class="invalidFeedback" id="errorFullName"></div>
             </div>
 
-            <!-- Email -->
+            <!-- EMAIL -->
             <div class="mb-3">
                 <label for="email" class="form-label">Email *</label>
                 <input type="email" id="email" name="email" class="form-control" required
@@ -37,14 +37,14 @@
                 <div class="invalidFeedback" id="errorEmail"></div>
             </div>
 
-            <!-- Phone -->
+            <!-- PHONE -->
             <div class="mb-3">
                 <label for="phone" class="form-label">Phone *</label>
                 <input type="tel" id="phone" name="phone" class="form-control" required placeholder="+63 912 345 6789">
                 <div class="invalidFeedback" id="errorPhone"></div>
             </div>
 
-            <!-- Project type -->
+            <!-- PROJECT TYPE -->
             <div class="mb-3">
                 <label for="projectType" class="form-label">Project Type *</label>
                 <select id="projectType" name="projectType" class="form-select" required>
@@ -58,7 +58,7 @@
                 <div class="invalidFeedback" id="errorProjectType"></div>
             </div>
 
-            <!-- Budget range -->
+            <!-- BUDGET RANGE -->
             <div class="mb-3">
                 <label class="form-label">Budget Range (₱) *</label>
 
@@ -81,7 +81,7 @@
                 <div class="invalidFeedback" id="errorBudget"></div>
             </div>
 
-            <!-- Desired start / end -->
+            <!-- START-END DATE -->
             <div class="row g-2 mb-3">
                 <div class="col">
                     <label for="desiredStart" class="form-label">Desired Start</label>
@@ -95,7 +95,7 @@
                 </div>
             </div>
 
-            <!-- Brief description -->
+            <!-- BRIEF DESCRIPTION -->
             <div class="mb-3">
                 <label for="briefDescription" class="form-label">Brief Description *</label>
                 <textarea id="briefDescription" name="briefDescription" class="form-control" rows="5"
@@ -125,7 +125,6 @@
         </div>
     </div>
 
-    <!-- script -->
     <script src="../scripts/projectinquiryScript.js" defer></script>
 </body>
 

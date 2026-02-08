@@ -1,6 +1,3 @@
-// projectInquiry.js
-// Handles budget sliders, validation, submission simulation, and "Inquiry Sent" modal
-
 document.addEventListener('DOMContentLoaded', () => {
     // Elements
     const form = document.getElementById('projectInquiryForm');

@@ -18,7 +18,6 @@
     <nav class="navbar">
         <div class="container ms-3 mt-3">
             <a class="navbar-brand" href="#">
-                <!-- CHANGED: forward slashes -->
                 <img src="../images/Icon.png" alt="Bootstrap" width="50px" height="auto">
             </a>
         </div>
@@ -26,7 +25,6 @@
     <h1 id="title">STOCKSENSE</h1>
     <!-- MOCK-UP -->
     <div>
-        <!-- CHANGED: forward slashes -->
         <img src="../images\stocksense\USER-LANDING.png" id="mockUp" alt="Splash">
         <p id="mockUpDescription">A mobile web-based navigation system with augmented reality and optical character
             recognition</p>
@@ -39,17 +37,14 @@
     <div class="container">
         <div class="row mb-5">
 
-            <!-- CHANGED: fixed typo 'sudetnSide' -> studentSideThumb, added data-gallery (list of images) -->
             <div class="col-lg-6 col-12">
                 <a id="studentSideThumb" class="galleryThumb" href="#"
                     data-gallery="../images\stocksense\USER-LANDING.png, ../images\stocksense\USER-APPOINTMENT.png, ../images\stocksense\USER-BUILD.png">
-                    <!-- CHANGED: use class instead of duplicate id -->
                     <img src="../images\stocksense\USER-APPOINTMENT.png" class="studentSideImage" alt="Student Side">
                 </a>
                 <p class="tagText">Admin Side</p>
             </div>
 
-            <!-- CHANGED: fixed id to guestSideThumb and data-gallery -->
             <div class="col-lg-6 col-12">
                 <a id="guestSideThumb" class="galleryThumb" href="#"
                     data-gallery="../images\stocksense\ADMIN-DASHBOARD.png, ../images\stocksense\ADMIN-INVENTORY.png, ../images\stocksense\ADMIN-APPOINTMENT.png, ../images\stocksense\ADMIN-BUILDS.png, ../images\stocksense\ADMIN-ORDERS.png">
@@ -100,18 +95,11 @@
         <div id="footer"> </div>
     </footer>
 
-    <!-- =====================================================
-         ADDED: Vertical Gallery Modal (keeps rest of page intact)
-         - no visible scrollbar
-         - no arrow buttons
-         - caption text bottom-left inside each photo (no background)
-         - overlay clickable to close
-         ===================================================== -->
     <div id="imageModal" class="imageModal" aria-hidden="true" role="dialog" aria-modal="true">
         <div class="modalOverlay" id="modalOverlay" tabindex="-1"></div>
 
         <div class="modalContent" role="document" aria-label="Image gallery">
-            <!-- close button (works) -->
+            <!-- CLOSE BUTTON -->
             <button id="modalCloseBtn" class="modalCloseBtn" aria-label="Close gallery">&times;</button>
 
             <!-- VERTICAL GALLERY VIEWPORT -->
@@ -121,7 +109,6 @@
         </div>
     </div>
 
-    <!-- CHANGED: external JS -->
     <script src="../scripts/stocksenseScript.js" defer></script>
 </body>
 

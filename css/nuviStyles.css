@@ -1,14 +1,8 @@
-/* =========================
-   Original styles (kept, with corrected selectors)
-   ========================= */
-
-/* PAGE BACKGROUND (replace the image URL with your chosen image) */
 body::before {
     content: "";
     position: fixed;
     inset: 0;
 
-    /* change this path to your background image file */
     background: black;
 
     z-index: -2;
@@ -74,7 +68,6 @@ body {
     margin: auto;
 }
 
-/* CHANGED: studentSideImage - class instead of duplicate id */
 .studentSideImage {
     height: 500px;
     width: auto;
@@ -86,7 +79,6 @@ body {
     justify-content: center;
 }
 
-/* CHANGED: tags use class tagText instead of repeated id */
 .tagText {
     color: #E4E6F3;
     font-size: 20px;
@@ -99,7 +91,6 @@ body {
     text-align: center;
 }
 
-/* CHANGED: technologies -> class technologyItem */
 #technologyItem {
     background-color: #E4E6F3;
     width: fit-content;
@@ -115,11 +106,6 @@ body {
     background-color: #E4E6F3;
     opacity: 70%;
 }
-
-/* =====================================================
-   ADDED: Vertical gallery modal styles (no visible scrollbar)
-   - keeps pointer-events enabled so buttons work
-   ===================================================== */
 
 .imageModal {
     display: none;
@@ -154,10 +140,10 @@ body {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    pointer-events: auto; /* FIXED: allow clicks inside modal */
+    pointer-events: auto;
 }
 
-/* close button (visible and clickable) */
+/* close button */
 .modalCloseBtn {
     position: absolute;
     right: 12px;
@@ -181,7 +167,6 @@ body {
     outline: none;
 }
 
-/* hide scrollbar but keep scrolling functional */
 /* Firefox */
 .verticalGallery {
     scrollbar-width: none;
@@ -220,7 +205,7 @@ body {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
 }
 
-/* label inside photo bottom-left WITHOUT background */
+/* label inside photo */
 .photoLabel {
     position: absolute;
     left: 16px;

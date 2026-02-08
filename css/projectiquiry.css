@@ -1,8 +1,3 @@
-/* Project Inquiry - form + inquiry-sent modal
-   Formal styling: neutral tones, rounded corners, defined sizes
-*/
-
-/* Basic layout */
 body {
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     background-color: #000;
@@ -17,7 +12,6 @@ body {
 /* Form box */
 .inquiryForm {
     background: #ffffff;
-    /* formal white card */
     color: #0f172a;
     max-width: 920px;
     margin-left: auto;
@@ -32,7 +26,6 @@ body {
     font-weight: 600;
 }
 
-/* Input aesthetics */
 .form-control,
 .form-select,
 .budgetNumber {
@@ -56,7 +49,7 @@ body {
     margin-top: 6px;
 }
 
-/* Range sliders stacked to simulate dual-thumb */
+/* Range sliders */
 .budgetSliders {
     position: relative;
     height: 36px;
@@ -100,7 +93,6 @@ body {
     min-height: 18px;
 }
 
-/* Success / error area */
 #formMessage .success {
     color: #065f46;
     font-weight: 600;
@@ -110,10 +102,9 @@ body {
     color: #b91c1c;
 }
 
-/* ----- Inquiry Sent Modal ----- */
+/* Inquiry Sent Modal */
 .inquiryModal {
     display: none;
-    /* hidden by default; JS will set style.display = 'flex' to show */
     position: fixed;
     inset: 0;
     z-index: 10000;
