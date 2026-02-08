@@ -1,154 +1,422 @@
+/* ==============================
+   AKIS-STYLE CLEAN AGENCY THEME
+   (modified: dark mode)
+   ============================== */
+
+
+/* ---------- ROOT COLORS ---------- */
+:root {
+    --bg: #000000;
+    /* CHANGED: black background */
+    --card: transparent;
+    /* CHANGED: no white card */
+    --text: #ffffff;
+    /* CHANGED: white text */
+    --muted: #cbd5e1;
+    --border: rgba(255, 255, 255, 0.35);
+    /* CHANGED: white border */
+    --accent: #ffffff;
+    /* CHANGED: white accent */
+    --inner: #191c1f
+}
+
+
+/* ---------- PAGE ---------- */
 body {
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    background-color: #000;
+    background-color: var(--bg);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    color: var(--text);
 }
 
-/* Form title */
+
+/* ---------- TITLE ---------- */
 .formTitle {
-    color: #fff;
+    font-size: 2.4rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 2.5rem;
+    margin-left: 5%;
+    color: var(--text);
+    /* ADDED */
+}
+
+#heroTag {
+    font-size: 100px;
+    width: 50%;
+    margin-left: 15%;
+    margin-bottom: 5%;
+    margin-top: 5%;
+}
+
+/* ---------- CONTACT INFO ---------- */
+
+.contactInfo h3 {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
     font-weight: 600;
 }
 
-/* Form box */
+.contactItem {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.8rem;
+}
+
+.contactIcon {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    color: #ffffff;
+    flex-shrink: 0;
+}
+
+.contactItem p {
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.contactItem .small {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+    letter-spacing: 0.5px;
+}
+
+/* ---------- FORM CARD ---------- */
 .inquiryForm {
-    background: #E4E6F3;
-    color: #0f172a;
-    max-width: 920px;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 12px;
-    box-shadow: 0 8px 28px rgba(15, 23, 42, 0.08);
+    background: var(--card);
+    /* now transparent */
+    border-radius: 16px;
+    border: 1px solid var();
+
+    max-width: 900px;
+    margin: 0 auto;
+
+    padding: 48px;
 }
 
-/* Labels */
-.inquiryForm .form-label {
-    color: #0f172a;
+
+/* ---------- LABELS ---------- */
+.form-label {
     font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+    color: var(--text);
+    /* ADDED */
 }
 
+
+/* ---------- INPUTS ---------- */
 .form-control,
 .form-select,
-.budgetNumber {
-    border-radius: 8px;
-    border: 1px solid #cbd5e1;
-    padding: 10px 12px;
-    background: #E4E6F3;
-    color: #0f172a;
+textarea {
+    border: 1px solid var(--border);
+    /* border-radius: 5px; */
+    padding: 12px 14px;
+    font-size: 0.95rem;
+
+    background: transparent;
+    /* CHANGED */
+    color: var(--inner);
+    /* ADDED */
+
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+
+/* focus = stay transparent */
+.form-control:focus,
+.form-select:focus,
+textarea:focus {
+    border-color: var(--accent);
     box-shadow: none;
+    /* CHANGED */
+    background: transparent;
+    /* ADDED */
+    color: var(--text);
+    /* ADDED */
 }
 
-/* Number inputs narrower */
+
+/* ---------- TEXTAREA SIZE ---------- */
+textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+.checkboxGroup {
+    margin-top: 0.5rem;
+}
+
+.checkboxLabel {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.8rem;
+    color: var(--text);
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.checkboxLabel input {
+    display: none;
+}
+
+.checkmark {
+    width: 18px;
+    height: 18px;
+    border: 1px solid var(--border);
+    margin-right: 0.75rem;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.checkboxLabel input:checked+.checkmark {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+.checkboxLabel input:checked+.checkmark::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 1px;
+    width: 5px;
+    height: 10px;
+    border: solid var(--bg);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .checkboxGroup {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+/* ---------- BUDGET NUMBERS ---------- */
 .budgetNumber {
-    max-width: 160px;
+    max-width: 150px;
+    background: transparent;
+    /* ADDED */
+    color: var(--inner);
+    /* ADDED */
 }
 
-/* small helper text */
-.budgetPreview {
-    color: #334155;
-    font-weight: 600;
-    margin-top: 6px;
-}
 
-/* Range sliders */
+/* ---------- RANGE SLIDER ---------- */
+/* ---------- BUDGET SLIDER ---------- */
 .budgetSliders {
     position: relative;
-    height: 36px;
-    margin: 6px 0;
+    width: 100%;
+    height: 20px;
+    margin: 10px 0;
 }
 
 .budgetSliders input[type="range"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    margin: 0;
+    background: transparent;
     -webkit-appearance: none;
     appearance: none;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 10px;
-    width: 100%;
-    background: transparent;
-    pointer-events: all;
+    pointer-events: none;
+    z-index: 3;
 }
 
-/* Webkit thumb style */
 .budgetSliders input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    height: 16px;
-    width: 16px;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--accent);
     border-radius: 50%;
-    background: #0f172a;
     cursor: pointer;
-    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.3);
+    pointer-events: auto;
+    border: 2px solid var(--bg);
+    box-shadow: 0 0 0 1px var(--border);
 }
 
-/* track appearance */
-.budgetSliders input[type="range"]::-webkit-slider-runnable-track {
-    height: 6px;
-    background: linear-gradient(90deg, #fff, #fff);
-    border-radius: 4px;
+.budgetSliders input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--accent);
+    cursor: pointer;
+    pointer-events: auto;
+    border: 2px solid var(--bg);
+    box-shadow: 0 0 0 1px var(--border);
 }
 
-/* Error text */
+/* Create a single track line */
+.budgetSliders::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--border);
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+/* Remove old styles */
+.budgetSliders input[type="range"] {
+    appearance: none;
+    height: 20px;
+    /* Changed from .5px */
+    background: transparent;
+    /* Changed from var(--text) */
+    border-radius: 0;
+}
+
+.budgetSliders input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    /* Increased from 16px */
+    height: 20px;
+    /* Increased from 16px */
+    background: var(--accent);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Adjust the budget row layout for better spacing */
+.budgetRow {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    width: 100%;
+}
+
+.budgetNumber {
+    max-width: 120px;
+    /* Slightly smaller */
+    background: transparent;
+    color: var(--text);
+}
+
+/* Make the slider container take full width */
+.budgetRow>div {
+    flex: 1;
+    min-width: 0;
+    /* Allow shrinking */
+}
+
+
+/* ---------- BUTTONS ---------- */
+.btn-primary {
+    background: #fff;
+    color: #000;
+    /* ADDED for contrast */
+    border: #fff;
+    border-style: solid;
+    border-width: .1px;
+    /* border-radius: 5px; */
+    padding: 12px 22px;
+    font-weight: 600;
+    border-radius: 0px;
+
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+    background-color: #000;
+    border: #fff;
+    border-style: solid;
+    border-width: .1px;
+    border-radius: 0px;
+}
+
+.btn-secondary {
+    border-radius: 0px;
+    background: transparent;
+    /* ADDED */
+    color: var(--text);
+    /* ADDED */
+    border: 1px solid var(--border);
+    /* ADDED */
+}
+
+.btn-secondary:hover {
+    /* border-radius: 5px; */
+    background: #fff;
+    /* ADDED */
+    color: #000;
+    /* ADDED */
+    border: 1px solid var(--border);
+    /* ADDED */
+}
+
+
+/* ---------- SUCCESS / ERROR ---------- */
 .invalidFeedback {
-    color: #b91c1c;
+    color: #ff6b6b;
+    /* CHANGED for visibility */
+    font-size: 0.85rem;
     margin-top: 6px;
-    min-height: 18px;
 }
 
-#formMessage .success {
-    color: #065f46;
+.success {
+    color: #7CFFB2;
     font-weight: 600;
 }
 
-#formMessage .error {
-    color: #b91c1c;
-}
 
-/* Inquiry Sent Modal */
+/* ---------- MODAL ---------- */
 .inquiryModal {
     display: none;
     position: fixed;
     inset: 0;
-    z-index: 10000;
-    background-color: rgba(15, 23, 42, 0.55);
-    backdrop-filter: blur(4px);
+    background: rgba(0, 0, 0, 0.8);
+    /* CHANGED darker */
+
     align-items: center;
     justify-content: center;
     padding: 20px;
 }
 
 .inquiryModalContent {
-    background: #ffffff;
-    color: #0f172a;
-    max-width: 520px;
-    width: 100%;
-    border-radius: 12px;
-    padding: 28px 28px;
+    background: transparent;
+    /* CHANGED */
+    border-radius: 16px;
+    border: 1px solid var(--border);
+
+    max-width: 420px;
+    padding: 32px;
     text-align: center;
-    box-shadow: 0 12px 40px rgba(2, 6, 23, 0.16);
+
+    color: var(--text);
+    /* ADDED */
 }
 
-.inquiryModalContent h3 {
-    margin: 0 0 12px 0;
-    font-size: 1.4rem;
+
+/* ---------- SPACING BETWEEN FIELDS ---------- */
+.mb-3 {
+    margin-bottom: 1.5rem !important;
 }
 
-.inquiryModalContent p {
-    color: #475569;
-    margin-bottom: 20px;
-}
 
-/* Modal OK button */
-.inquiryModalContent .btn {
-    border-radius: 10px;
-    padding: 10px 22px;
-}
-
-/* responsive */
+/* ---------- MOBILE ---------- */
 @media (max-width: 640px) {
     .inquiryForm {
-        padding: 16px;
+        padding: 24px;
     }
 
-    .inquiryModalContent {
-        padding: 20px;
+    .formTitle {
+        font-size: 1.8rem;
     }
 }

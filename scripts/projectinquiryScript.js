@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const desiredEnd = document.getElementById('desiredEnd');
     const briefDescription = document.getElementById('briefDescription');
 
+
     // Modal elements
     const inquiryModal = document.getElementById('inquirySentModal');
     const closeInquiryModal = document.getElementById('closeInquiryModal');
@@ -193,6 +194,11 @@ document.addEventListener('DOMContentLoaded', () => {
             valid = false;
         }
 
+        const projectNeedsCheckboxes = document.querySelectorAll('input[name="projectNeeds"]:checked');
+        if (projectNeedsCheckboxes.length === 0) {
+            setError(err.projectType, 'Please select at least one project type.');
+            valid = false;
+        }
         // dates
         const startVal = desiredStart.value;
         const endVal = desiredEnd.value;
@@ -205,6 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 valid = false;
             }
         }
+
 
         // description
         const desc = briefDescription.value ? briefDescription.value.trim() : '';
@@ -223,7 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
             fullName: fullName.value.trim(),
             email: email.value.trim(),
             phone: phone.value.trim(),
-            projectType: projectType.value,
+            projectNeeds: Array.from(projectNeedsCheckboxes).map(cb => cb.value), // ADD this line
             minBudget: minVal,
             maxBudget: maxVal,
             desiredStart: startVal || null,

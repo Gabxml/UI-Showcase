@@ -12,107 +12,168 @@
     <!-- form styles -->
     <link rel="stylesheet" href="../css/projectiquiryStyles.css">
     <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 
 </head>
 
 <body>
+    <!-- <div id="header"></div> -->
+
+    <div id="heroTag"> We'd love to hear about your project!</div>
 
     <!-- PROJECT INQUIRY FORM -->
     <main class="container my-5">
-        <h2 class="text-center mb-4 formTitle">Project Inquiry</h2>
 
-        <form id="projectInquiryForm" class="inquiryForm p-4 rounded" novalidate>
-            <!-- NAME -->
-            <div class="mb-3">
-                <label for="fullName" class="form-label">Full Name *</label>
-                <input type="text" id="fullName" name="fullName" class="form-control" required minlength="2"
-                    placeholder="Juan Dela Cruz">
-                <div class="invalidFeedback" id="errorFullName"></div>
+        <div class="row">
+            <div class="col-lg-3 col-12 mt-5 pt-5">
+                <h3 class="mb-4">Contact us</h3>
+                <div class="contactItem mb-4">
+                    <div class="contactIcon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <p class="small mb-1">Email</p>
+                        <p class="mb-0">accgstudios@gmail.com</p>
+                    </div>
+                </div>
+                <div class="contactItem mb-4">
+                    <div class="contactIcon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div>
+                        <p class="small mb-1">Phone</p>
+                        <p class="mb-0">+63 918 689 7314</p>
+                    </div>
+                </div>
+                <div class="contactItem">
+                    <div class="contactIcon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                        <p class="small mb-1">Address</p>
+                        <p class="mb-0">ACCG.STUDIO<br>Avenue Louise 231<br>Angeles<br>Philippines</p>
+                    </div>
+                </div>
             </div>
+            <div class="col-lg-9 col-12">
+                <h2 class="mb-4 formTitle">Tell us more</h2>
+                <form id="projectInquiryForm" class="inquiryForm p-4 rounded " novalidate>
 
-            <!-- EMAIL -->
-            <div class="mb-3">
-                <label for="email" class="form-label">Email *</label>
-                <input type="email" id="email" name="email" class="form-control" required
-                    placeholder="juan@example.com">
-                <div class="invalidFeedback" id="errorEmail"></div>
-            </div>
-
-            <!-- PHONE -->
-            <div class="mb-3">
-                <label for="phone" class="form-label">Phone *</label>
-                <input type="tel" id="phone" name="phone" class="form-control" required placeholder="+63 912 345 6789">
-                <div class="invalidFeedback" id="errorPhone"></div>
-            </div>
-
-            <!-- PROJECT TYPE -->
-            <div class="mb-3">
-                <label for="projectType" class="form-label">Project Type *</label>
-                <select id="projectType" name="projectType" class="form-select" required>
-                    <option value="">— Select project type —</option>
-                    <option value="Website">Website / Web App</option>
-                    <option value="MobileApp">Mobile App</option>
-                    <option value="Branding">Branding</option>
-                    <option value="ARVR">AR / VR</option>
-                    <option value="Other">Other</option>
-                </select>
-                <div class="invalidFeedback" id="errorProjectType"></div>
-            </div>
-
-            <!-- BUDGET RANGE -->
-            <div class="mb-3">
-                <label class="form-label">Budget Range (₱) *</label>
-
-                <div class="d-flex gap-2 align-items-center budgetRow">
-                    <input type="number" id="minBudgetNumber" name="minBudget" class="form-control budgetNumber"
-                        step="1000" min="0">
-
-                    <div style="flex:1;">
-                        <div class="budgetSliders">
-                            <input type="range" id="minBudgetRange" min="0" max="1000000" step="1000" value="50000" />
-                            <input type="range" id="maxBudgetRange" min="0" max="1000000" step="1000" value="200000" />
-                        </div>
-                        <div class="small budgetPreview" id="budgetPreview" aria-live="polite"></div>
+                    <!-- NAME -->
+                    <div class="mb-3">
+                        <label for="fullName" class="form-label">Full Name *</label>
+                        <input type="text" id="fullName" name="fullName" class="form-control" required minlength="2"
+                            placeholder="Juan Dela Cruz">
+                        <div class="invalidFeedback" id="errorFullName"></div>
                     </div>
 
-                    <input type="number" id="maxBudgetNumber" name="maxBudget" class="form-control budgetNumber"
-                        step="1000" min="0">
-                </div>
+                    <!-- EMAIL -->
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email *</label>
+                        <input type="email" id="email" name="email" class="form-control" required
+                            placeholder="juan@example.com">
+                        <div class="invalidFeedback" id="errorEmail"></div>
+                    </div>
 
-                <div class="invalidFeedback" id="errorBudget"></div>
+                    <!-- PHONE -->
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone *</label>
+                        <input type="tel" id="phone" name="phone" class="form-control" required
+                            placeholder="+63 912 345 6789">
+                        <div class="invalidFeedback" id="errorPhone"></div>
+                    </div>
+
+                    <!-- PROJECT TYPE -->
+                    <div class="mb-3">
+                        <label class="form-label">Project Type *</label>
+                        <div class="checkboxGroup">
+                            <label class="checkboxLabel">
+                                <input type="checkbox" name="projectNeeds" value="branding">
+                                <span class="checkmark"></span>
+                                Branding
+                            </label>
+                            <label class="checkboxLabel">
+                                <input type="checkbox" name="projectNeeds" value="print">
+                                <span class="checkmark"></span>
+                                Print
+                            </label>
+                            <label class="checkboxLabel">
+                                <input type="checkbox" name="projectNeeds" value="webDesign">
+                                <span class="checkmark"></span>
+                                Web design
+                            </label>
+                            <label class="checkboxLabel">
+                                <input type="checkbox" name="projectNeeds" value="websiteDevelopment">
+                                <span class="checkmark"></span>
+                                Website development
+                            </label>
+                            <label class="checkboxLabel">
+                                <input type="checkbox" name="projectNeeds" value="other">
+                                <span class="checkmark"></span>
+                                Other
+                            </label>
+                        </div>
+                        <div class="invalidFeedback" id="errorProjectType"></div>
+                    </div>
+
+                    <!-- BUDGET RANGE -->
+                    <div class="mb-3">
+                        <label class="form-label">Budget Range (₱) *</label>
+
+                        <div class="d-flex gap-2 align-items-center budgetRow">
+                            <input type="number" id="minBudgetNumber" name="minBudget" class="form-control budgetNumber"
+                                step="1000" min="0">
+
+                            <div style="flex:1;">
+                                <div class="budgetSliders">
+                                    <input type="range" id="minBudgetRange" min="0" max="1000000" step="1000"
+                                        value="50000" />
+                                    <input type="range" id="maxBudgetRange" min="0" max="1000000" step="1000"
+                                        value="200000" />
+                                </div>
+                                <div class="small budgetPreview" id="budgetPreview" aria-live="polite"></div>
+                            </div>
+
+                            <input type="number" id="maxBudgetNumber" name="maxBudget" class="form-control budgetNumber"
+                                step="1000" min="0">
+                        </div>
+
+                        <div class="invalidFeedback" id="errorBudget"></div>
+                    </div>
+
+                    <!-- START-END DATE -->
+                    <div class="row g-2 mb-3">
+                        <div class="col">
+                            <label for="desiredStart" class="form-label">Desired Start</label>
+                            <input type="date" id="desiredStart" name="desiredStart" class="form-control">
+                            <div class="invalidFeedback" id="errorStart"></div>
+                        </div>
+                        <div class="col">
+                            <label for="desiredEnd" class="form-label">Desired End</label>
+                            <input type="date" id="desiredEnd" name="desiredEnd" class="form-control">
+                            <div class="invalidFeedback" id="errorEnd"></div>
+                        </div>
+                    </div>
+
+                    <!-- BRIEF DESCRIPTION -->
+                    <div class="mb-3">
+                        <label for="briefDescription" class="form-label">Brief Description *</label>
+                        <textarea id="briefDescription" name="briefDescription" class="form-control" rows="5"
+                            placeholder="Describe project goals, must-have features, audience..." required
+                            minlength="20" maxlength="2000"></textarea>
+                        <div class="invalidFeedback" id="errorDescription"></div>
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <button type="submit" id="submitInquiry" class="btn btn-primary">Send Inquiry</button>
+                        <button type="button" id="resetInquiry" class="btn btn-secondary">Reset</button>
+                    </div>
+
+                    <div id="formMessage" class="mt-3" role="status" aria-live="polite"></div>
+                </form>
             </div>
-
-            <!-- START-END DATE -->
-            <div class="row g-2 mb-3">
-                <div class="col">
-                    <label for="desiredStart" class="form-label">Desired Start</label>
-                    <input type="date" id="desiredStart" name="desiredStart" class="form-control">
-                    <div class="invalidFeedback" id="errorStart"></div>
-                </div>
-                <div class="col">
-                    <label for="desiredEnd" class="form-label">Desired End</label>
-                    <input type="date" id="desiredEnd" name="desiredEnd" class="form-control">
-                    <div class="invalidFeedback" id="errorEnd"></div>
-                </div>
-            </div>
-
-            <!-- BRIEF DESCRIPTION -->
-            <div class="mb-3">
-                <label for="briefDescription" class="form-label">Brief Description *</label>
-                <textarea id="briefDescription" name="briefDescription" class="form-control" rows="5"
-                    placeholder="Describe project goals, must-have features, audience..." required minlength="20"
-                    maxlength="2000"></textarea>
-                <div class="invalidFeedback" id="errorDescription"></div>
-            </div>
-
-            <div class="d-flex gap-2">
-                <button type="submit" id="submitInquiry" class="btn btn-primary">Send Inquiry</button>
-                <button type="button" id="resetInquiry" class="btn btn-secondary">Reset</button>
-            </div>
-
-            <div id="formMessage" class="mt-3" role="status" aria-live="polite"></div>
-        </form>
+        </div>
     </main>
 
     <!-- INQUIRY SENT MODAL -->
@@ -128,7 +189,7 @@
     </div>
 
     <script src="../scripts/projectinquiryScript.js" defer></script>
-    <script src="../scripts/header.js" defer></script>
+    <script type="module" src="../scripts/header.js" defer></script>
     <script src="../scripts/main.js" defer></script>
     <script src="../scripts/footer.js" defer></script>
 </body>

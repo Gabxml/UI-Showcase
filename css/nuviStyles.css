@@ -45,6 +45,32 @@ body {
     margin-bottom: 50px;
 }
 
+@media (min-width: 1024px) {
+    #mockUp {
+        width: 70%;
+        /* Bigger on desktop - adjust this percentage as needed */
+        max-width: 900px;
+        /* Optional: set a maximum size */
+    }
+}
+
+/* For tablet/mid screens */
+@media (min-width: 768px) and (max-width: 1023px) {
+    #mockUp {
+        width: 80%;
+    }
+}
+
+/* For mobile screens - make it even bigger */
+@media (max-width: 767px) {
+    #mockUp {
+        width: 90%;
+        /* Bigger on mobile */
+        max-width: 100%;
+        /* Allow it to take most of the screen */
+    }
+}
+
 #mockUpDescription {
     color: #E4E6F3;
     font-size: 20px;
@@ -59,8 +85,8 @@ body {
 
 /* replaced unused #studentsSide id with class to avoid confusion */
 .studentsSide {
-    height: 50%;
-    width: auto;
+    height: auto;
+    width: 500px;
     border-radius: 20px;
     border-style: solid;
     background-color: #ffffff;
@@ -69,16 +95,18 @@ body {
 }
 
 .studentSideImage {
-    height: 500px;
-    width: auto;
+    height: auto;
+    width: 500px;
     border-radius: 20px;
+    border-style: solid;
+    border-color: #E4E6F3;
+    border-width: .01px;
     display: block;
     margin: auto;
     margin-top: 20px;
     margin-bottom: 20px;
     justify-content: center;
 }
-
 .tagText {
     color: #E4E6F3;
     font-size: 20px;
@@ -123,7 +151,7 @@ body {
     position: fixed;
     inset: 0;
     background: transparent;
-    backdrop-filter: blur(10px); 
+    backdrop-filter: blur(10px);
 
 }
 

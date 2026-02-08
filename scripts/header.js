@@ -25,7 +25,7 @@ export function loadHeader() {
       </button>
 
       <!-- Navigation Links (Desktop: inline, Mobile: dropdown) -->
-<ul
+<ul>
   id="nav-links"
   class="
     absolute md:static
