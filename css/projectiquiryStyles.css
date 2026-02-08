@@ -11,7 +11,7 @@ body {
 
 /* Form box */
 .inquiryForm {
-    background: #ffffff;
+    background: #E4E6F3;
     color: #0f172a;
     max-width: 920px;
     margin-left: auto;
@@ -32,7 +32,7 @@ body {
     border-radius: 8px;
     border: 1px solid #cbd5e1;
     padding: 10px 12px;
-    background: #fff;
+    background: #E4E6F3;
     color: #0f172a;
     box-shadow: none;
 }
@@ -82,7 +82,7 @@ body {
 /* track appearance */
 .budgetSliders input[type="range"]::-webkit-slider-runnable-track {
     height: 6px;
-    background: linear-gradient(90deg, #e2e8f0, #e2e8f0);
+    background: linear-gradient(90deg, #fff, #fff);
     border-radius: 4px;
 }
 
