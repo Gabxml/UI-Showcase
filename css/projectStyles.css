@@ -1,10 +1,9 @@
+/* Keep body styles for noise effect if you want it */
 body::before {
     content: "";
     position: fixed;
     inset: 0;
-
     background: black;
-
     z-index: -2;
 }
 
@@ -23,117 +22,69 @@ body {
     min-height: 100vh;
     position: relative;
     overflow: auto;
+    background-color: black;
 }
 
-#title {
-    color: #E4E6F3;
-    font-size: 100px;
-    justify-self: center;
-    margin-bottom: 10px;
-}
-
+/* MOCKUP IMAGE - Override Tailwind if needed */
 #mockUp {
-    height: 50%;
-    width: 50%;
-    border-radius: 20px;
-    border-style: solid;
-    border-color: #E4E6F3;
-    border-width: .5px;
-    display: block;
-    margin: auto;
-    margin-bottom: 50px;
+    border-radius: 8px;
+    /* Removed border: 0.5px solid #E4E6F3; as you commented it out */
 }
 
-@media (min-width: 1024px) {
-    #mockUp {
-        width: 70%;
-        /* Bigger on desktop - adjust this percentage as needed */
-        max-width: 900px;
-        /* Optional: set a maximum size */
-    }
-}
-
-/* For tablet/mid screens */
-@media (min-width: 768px) and (max-width: 1023px) {
-    #mockUp {
-        width: 80%;
-    }
-}
-
-/* For mobile screens - make it even bigger */
-@media (max-width: 767px) {
-    #mockUp {
-        width: 90%;
-        /* Bigger on mobile */
-        max-width: 100%;
-        /* Allow it to take most of the screen */
-    }
-}
-
-#mockUpDescription {
-    color: #E4E6F3;
-    font-size: 20px;
-    width: auto;
-    text-align: center;
-    justify-self: center;
-}
-
-.flex {
-    display: flex;
-}
-
-.studentsSide {
+/* GALLERY IMAGES */
+.gallery-image {
+    width: 100%;
     height: auto;
-    width: 500px;
-    border-radius: 20px;
-    border-style: solid;
-    background-color: #ffffff;
+    border-radius: 8px;
+    /* Removed border: 0.5px solid #E4E6F3; as you commented it out */
     display: block;
-    margin: auto;
+    transition: transform 0.3s ease;
+    object-fit: cover;
 }
 
-.studentSideImage {
-    height: auto;
-    width: 500px;
-    border-radius: 20px;
-    border-style: solid;
-    border-color: #E4E6F3;
-    border-width: .01px;
-    display: block;
-    margin: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    justify-content: center;
+.gallery-image:hover {
+    transform: scale(1.02);
 }
 
-.tagText {
+/* GALLERY LABEL/TEXT - POSITIONED IN LOWER LEFT OF IMAGE */
+.gallery-label {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
     color: #E4E6F3;
-    font-size: 20px;
-    text-align: center;
+    font-size: 18px;
+    text-align: left;
+    margin: 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 15px;
+    border-radius: 10px;
+    pointer-events: none;
+    z-index: 1;
 }
 
-#tagText {
+/* TECHNOLOGY ITEMS - Updated to match your style */
+.technologyItem {
+    background-color: transparent;
     color: #E4E6F3;
-    font-size: 20px;
+    padding: 8px 20px;
+    border-radius: 8px;
+    border: 0.5px solid #E4E6F3;
+    font-size: 18px;
+    display: inline-block;
     text-align: center;
+    white-space: nowrap;
 }
 
-#technologyItem {
-    background-color: #E4E6F3;
-    width: fit-content;
-    height: fit-content;
-    border-radius: 20px;
-    font-size: 25px;
-}
-
-/* footer */
+/* FOOTER */
 #footer {
     width: 100%;
-    height: 00px;
+    height: 60px;
     background-color: #E4E6F3;
     opacity: 70%;
 }
 
+/* IMAGE MODAL STYLES */
 .imageModal {
     display: none;
     position: fixed;
@@ -145,35 +96,30 @@ body {
     display: block;
 }
 
-/* overlay is transparent but clickable to close */
 .modalOverlay {
     position: fixed;
     inset: 0;
-    background: transparent;
+    background: rgba(0, 0, 0, 0.9);
     backdrop-filter: blur(10px);
-
 }
 
-/* ensure clicks inside modal work */
 .modalContent {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: fit-content;
+    width: 90vw;
+    max-width: 900px;
     height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    pointer-events: auto;
 }
 
-/* close button (visible and clickable) */
 .modalCloseBtn {
     position: absolute;
-    right: 12px;
-    top: 8px;
+    right: 20px;
+    top: 20px;
     background: transparent;
     border: none;
     font-size: 2.4rem;
@@ -182,38 +128,26 @@ body {
     z-index: 20;
 }
 
-/* vertical gallery viewport */
 .verticalGallery {
     flex: 1 1 auto;
     height: 100%;
     overflow-y: auto;
     scroll-snap-type: y mandatory;
     -webkit-overflow-scrolling: touch;
-    display: block;
-    outline: none;
 }
 
-/* Firefox */
-.verticalGallery {
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-}
-
-/* Chrome, Edge, Safari */
 .verticalGallery::-webkit-scrollbar {
     display: none;
 }
 
-/* inner stack */
 .verticalInner {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 36px;
-    padding: 24px;
+    gap: 40px;
+    padding: 40px 20px;
 }
 
-/* slide */
 .carouselItem {
     position: relative;
     width: 100%;
@@ -222,16 +156,14 @@ body {
     justify-content: center;
 }
 
-/* image sizing inside modal */
 .carouselItem img {
-    max-width: 90vw;
+    max-width: 100%;
     height: auto;
-    border-radius: 10px;
+    border-radius: 8px;
     display: block;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
 }
 
-/* label inside photo */
 .photoLabel {
     position: absolute;
     left: 16px;
@@ -243,13 +175,24 @@ body {
     user-select: none;
 }
 
-/* responsive tweaks */
-@media (max-width: 700px) {
-    .carouselItem img {
-        max-width: 96vw;
-    }
+/* GALLERY THUMB */
+.galleryThumb {
+    display: block;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+}
 
-    #title {
-        font-size: 64px;
+/* Responsive adjustments */
+@media (max-width: 767px) {
+    .gallery-label {
+        font-size: 16px;
+        bottom: 15px;
+        left: 15px;
+    }
+    
+    .technologyItem {
+        font-size: 14px;
+        padding: 6px 15px;
     }
 }

@@ -10,6 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentImages = [];
     let lastFocusedElement = null;
 
+    // NEW: Check if required elements exist
+    if (!imageModal || !modalOverlay || !verticalGallery || !verticalInner) {
+        console.warn('Gallery elements not found. Gallery functionality disabled.');
+        return;
+    }
+
     function parseGalleryData(dataString) {
         if (!dataString) return [];
         return dataString.split(',').map(s => s.trim()).filter(Boolean);
@@ -29,8 +35,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const img = document.createElement('img');
             img.src = src;
-            img.alt = `Photo ${i + 1}`;
+            img.alt = `Gallery image ${i + 1} - ${formatLabelFromPath(src)}`;
             img.loading = 'lazy';
+            
+            // NEW: Add error handling for images
+            img.onerror = function() {
+                console.error(`Failed to load image: ${src}`);
+                img.alt = 'Image failed to load';
+                img.style.backgroundColor = '#f0f0f0';
+                img.style.padding = '20px';
+            };
 
             const label = document.createElement('div');
             label.className = 'photoLabel';
@@ -43,13 +57,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function openModal(images, startIndex = 0) {
-        if (!images || images.length === 0) return;
+        if (!images || images.length === 0) {
+            console.warn('No images to display in gallery');
+            return;
+        }
+        
         currentImages = images;
         buildVerticalSlides(images);
 
         lastFocusedElement = document.activeElement;
         imageModal.classList.add('open');
         imageModal.setAttribute('aria-hidden', 'false');
+        
+        // NEW: Prevent body scroll when modal is open
+        document.body.style.overflow = 'hidden';
 
         requestAnimationFrame(() => {
             currentIndex = Math.min(Math.max(0, startIndex), images.length - 1);
@@ -66,8 +87,14 @@ document.addEventListener('DOMContentLoaded', () => {
         verticalInner.innerHTML = '';
         currentImages = [];
         currentIndex = 0;
+        
+        // NEW: Restore body scroll
+        document.body.style.overflow = '';
+        
         document.removeEventListener('keydown', onDocumentKeyDown);
-        if (lastFocusedElement) lastFocusedElement.focus();
+        if (lastFocusedElement) {
+            lastFocusedElement.focus();
+        }
     }
 
     function scrollToIndex(index, smooth = true) {
@@ -87,7 +114,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const childCenter = child.offsetTop + child.clientHeight / 2;
             const viewportCenter = scrollTop + verticalGallery.clientHeight / 2;
             const delta = Math.abs(childCenter - viewportCenter);
-            if (delta < nearestDelta) { nearestDelta = delta; nearestIndex = idx; }
+            if (delta < nearestDelta) { 
+                nearestDelta = delta; 
+                nearestIndex = idx; 
+            }
         });
         return nearestIndex;
     }
@@ -109,9 +139,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function onDocumentKeyDown(e) {
-        if (e.key === 'Escape') { closeModal(); }
-        else if (e.key === 'ArrowUp') { goPrev(); }
-        else if (e.key === 'ArrowDown') { goNext(); }
+        if (e.key === 'Escape') { 
+            closeModal(); 
+        }
+        else if (e.key === 'ArrowUp') { 
+            e.preventDefault(); // NEW: Prevent page scroll when arrow keys are used
+            goPrev(); 
+        }
+        else if (e.key === 'ArrowDown') { 
+            e.preventDefault(); // NEW: Prevent page scroll when arrow keys are used
+            goNext(); 
+        }
     }
 
     galleryThumbs.forEach(thumb => {
@@ -119,6 +157,15 @@ document.addEventListener('DOMContentLoaded', () => {
             ev.preventDefault();
             const images = parseGalleryData(thumb.getAttribute('data-gallery'));
             openModal(images, 0);
+        });
+        
+        // NEW: Add keyboard support for thumbnails
+        thumb.addEventListener('keydown', (ev) => {
+            if (ev.key === 'Enter' || ev.key === ' ') {
+                ev.preventDefault();
+                const images = parseGalleryData(thumb.getAttribute('data-gallery'));
+                openModal(images, 0);
+            }
         });
     });
 
@@ -145,6 +192,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 img.style.transition = 'transform 220ms';
             }
         }
+    });
+
+    // NEW: Close modal when clicking on the modal background (outside content)
+    imageModal.addEventListener('click', (e) => {
+        if (e.target === imageModal) {
+            closeModal();
+        }
+    });
+
+    // NEW: Prevent modal from closing when clicking inside content
+    document.querySelector('.modalContent').addEventListener('click', (e) => {
+        e.stopPropagation();
     });
 
     window.verticalGalleryAPI = { open: openModal, close: closeModal, goNext, goPrev };

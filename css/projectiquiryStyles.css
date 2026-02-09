@@ -29,23 +29,70 @@ body {
 }
 
 
+/* ---------- HERO TAG ---------- */
+#heroTag {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-left: 15%;
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+    max-width: 600px;
+}
+
+
 /* ---------- TITLE ---------- */
 .formTitle {
     font-size: 2.4rem;
     font-weight: 800;
     letter-spacing: -0.02em;
-    margin-bottom: 2.5rem;
-    margin-left: 5%;
+    margin-bottom: 0;
     color: var(--text);
-    /* ADDED */
 }
 
-#heroTag {
-    font-size: 100px;
-    width: 50%;
-    margin-left: 15%;
-    margin-bottom: 5%;
-    margin-top: 5%;
+/* ---------- FORM TABS ---------- */
+.form-tabs {
+    display: flex;
+    gap: 10px;
+    margin-left: auto;
+}
+
+.tab-btn {
+    padding: 10px 24px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+.tab-btn:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.tab-btn.active {
+    background: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+}
+
+/* ---------- TAB CONTENT ---------- */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active-tab {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* ---------- CONTACT INFO ---------- */
@@ -95,11 +142,9 @@ body {
     background: var(--card);
     /* now transparent */
     border-radius: 16px;
-    border: 1px solid var();
-
+    /* border: 1px solid var(--border); */
     max-width: 900px;
     margin: 0 auto;
-
     padding: 48px;
 }
 
@@ -110,7 +155,6 @@ body {
     font-size: 0.95rem;
     margin-bottom: 6px;
     color: var(--text);
-    /* ADDED */
 }
 
 
@@ -119,15 +163,10 @@ body {
 .form-select,
 textarea {
     border: 1px solid var(--border);
-    /* border-radius: 5px; */
     padding: 12px 14px;
     font-size: 0.95rem;
-
     background: transparent;
-    /* CHANGED */
-    color: var(--inner);
-    /* ADDED */
-
+    color: var(--text);
     transition: border 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -138,11 +177,8 @@ textarea {
 textarea:focus {
     border-color: var(--accent);
     box-shadow: none;
-    /* CHANGED */
     background: transparent;
-    /* ADDED */
     color: var(--text);
-    /* ADDED */
 }
 
 
@@ -152,6 +188,7 @@ textarea {
     resize: vertical;
 }
 
+/* ---------- CHECKBOXES ---------- */
 .checkboxGroup {
     margin-top: 0.5rem;
 }
@@ -195,25 +232,14 @@ textarea {
     transform: rotate(45deg);
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    .checkboxGroup {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-}
-
 /* ---------- BUDGET NUMBERS ---------- */
 .budgetNumber {
     max-width: 150px;
     background: transparent;
-    /* ADDED */
     color: var(--inner);
-    /* ADDED */
 }
 
 
-/* ---------- RANGE SLIDER ---------- */
 /* ---------- BUDGET SLIDER ---------- */
 .budgetSliders {
     position: relative;
@@ -277,18 +303,14 @@ textarea {
 .budgetSliders input[type="range"] {
     appearance: none;
     height: 20px;
-    /* Changed from .5px */
     background: transparent;
-    /* Changed from var(--text) */
     border-radius: 0;
 }
 
 .budgetSliders input[type="range"]::-webkit-slider-thumb {
     appearance: none;
     width: 20px;
-    /* Increased from 16px */
     height: 20px;
-    /* Increased from 16px */
     background: var(--accent);
     border-radius: 50%;
     cursor: pointer;
@@ -304,68 +326,58 @@ textarea {
 
 .budgetNumber {
     max-width: 120px;
-    /* Slightly smaller */
     background: transparent;
     color: var(--text);
 }
 
 /* Make the slider container take full width */
-.budgetRow>div {
+.budgetRow > div {
     flex: 1;
     min-width: 0;
-    /* Allow shrinking */
 }
 
-
 /* ---------- BUTTONS ---------- */
-.btn-primary {
-    background: #fff;
-    color: #000;
-    /* ADDED for contrast */
-    border: #fff;
-    border-style: solid;
-    border-width: .1px;
-    /* border-radius: 5px; */
-    padding: 12px 22px;
-    font-weight: 600;
-    border-radius: 0px;
+.btn {
+    padding: 12px 22px !important;
+    border-radius: 0px !important;
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+    transition: all 0.2s ease !important;
+}
 
+.btn-primary {
+    background: #fff !important;
+    color: #000 !important;
+    border: 1px solid #fff !important;
 }
 
 .btn-primary:hover {
     opacity: 0.9;
-    background-color: #000;
-    border: #fff;
-    border-style: solid;
-    border-width: .1px;
-    border-radius: 0px;
+    background-color: #000 !important;
+    color: #fff !important;
+    border: 1px solid #fff !important;
 }
 
 .btn-secondary {
-    border-radius: 0px;
-    background: transparent;
-    /* ADDED */
-    color: var(--text);
-    /* ADDED */
-    border: 1px solid var(--border);
-    /* ADDED */
+    background: transparent !important;
+    color: var(--text) !important;
+    border: 1px solid var(--border) !important;
 }
 
 .btn-secondary:hover {
-    /* border-radius: 5px; */
-    background: #fff;
-    /* ADDED */
-    color: #000;
-    /* ADDED */
-    border: 1px solid var(--border);
-    /* ADDED */
+    background: #fff !important;
+    color: #000 !important;
+    border: 1px solid var(--border) !important;
 }
 
+/* ---------- BUTTON SPACING ---------- */
+.mb-4 {
+    margin-bottom: 1.5rem !important;
+}
 
 /* ---------- SUCCESS / ERROR ---------- */
 .invalidFeedback {
     color: #ff6b6b;
-    /* CHANGED for visibility */
     font-size: 0.85rem;
     margin-top: 6px;
 }
@@ -375,32 +387,64 @@ textarea {
     font-weight: 600;
 }
 
+#projectFormMessage .error,
+#contactFormMessage .error {
+    color: #ff6b6b;
+    background-color: rgba(255, 107, 107, 0.1);
+    padding: 1rem;
+    border-left: 3px solid #ff6b6b;
+    margin-top: 1rem;
+    border-radius: 4px;
+}
 
-/* ---------- MODAL ---------- */
-.inquiryModal {
+#projectFormMessage .success,
+#contactFormMessage .success {
+    color: #7CFFB2;
+    background-color: rgba(124, 255, 178, 0.1);
+    padding: 1rem;
+    border-left: 3px solid #7CFFB2;
+    margin-top: 1rem;
+    border-radius: 4px;
+}
+
+/* ---------- SUCCESS MODAL ---------- */
+.successModal {
     display: none;
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.8);
-    /* CHANGED darker */
-
     align-items: center;
     justify-content: center;
     padding: 20px;
+    z-index: 1000;
 }
 
-.inquiryModalContent {
+.successModalContent {
     background: transparent;
-    /* CHANGED */
     border-radius: 16px;
     border: 1px solid var(--border);
-
     max-width: 420px;
     padding: 32px;
     text-align: center;
-
     color: var(--text);
-    /* ADDED */
+}
+
+.modalIcon {
+    font-size: 3rem;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+}
+
+.successModalContent h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.successModalContent p {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
 }
 
 
@@ -410,7 +454,48 @@ textarea {
 }
 
 
-/* ---------- MOBILE ---------- */
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+    .checkboxGroup {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .budgetRow {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .budgetNumber {
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .budgetRow > div {
+        width: 100%;
+    }
+    
+    .form-tabs {
+        margin-left: 0;
+        margin-top: 1rem;
+        width: 100%;
+    }
+    
+    .d-flex.align-items-center {
+        flex-direction: column;
+        align-items: flex-start !important;
+    }
+    
+    .formTitle {
+        margin-bottom: 1rem !important;
+    }
+    
+    .tab-btn {
+        flex: 1;
+        text-align: center;
+    }
+}
+
 @media (max-width: 640px) {
     .inquiryForm {
         padding: 24px;
@@ -418,5 +503,20 @@ textarea {
 
     .formTitle {
         font-size: 1.8rem;
+    }
+    
+    #heroTag {
+        font-size: 2.5rem;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    
+    .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+    
+    .d-flex.gap-2 {
+        flex-direction: column;
     }
 }

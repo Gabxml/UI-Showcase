@@ -4,92 +4,111 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>VETTR</title>
 
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-
+    <!-- Custom Styles -->
     <link rel="stylesheet" href="../css/projectStyles.css" />
     <link rel="stylesheet" href="../css/style.css" />
 
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'nuvi-gray': '#E4E6F3',
+                    },
+                    borderRadius: {
+                        'xl': '8px',
+                        '2xl': '20px',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 
-<body>
+<body class="bg-black">
     <!-- NAVBAR -->
     <nav class="navbar">
-        <div class="container ms-3 mt-3">
+        <div class="ml-12 mt-12">
             <a class="navbar-brand" href="#">
-                <img src="../images/Icon.png" alt="Bootstrap" width="50px" height="auto">
+                <img src="../images/Icon.png" alt="Icon" width="50" height="auto">
             </a>
         </div>
     </nav>
-    <h1 id="title">VETTR</h1>
-    <!-- MOCK-UP -->
-    <div>
-        <img src="../images\vettr\cover_vettr.png" id="mockUp" alt="Splash">
-        <p id="mockUpDescription">A Mobile-Based Pet Vaccination and Deworming Information System Utilizing QR Code
-            Technology for Record Digitalization.</p>
-        <p id="mockUpDescription" class="mb-5">A QR Code–Based Digital Pet Vaccination and
-            Deworming Record System that will serve as a reliable digital alternative to traditional paper-based
-            vaccination booklets.</p>
-    </div>
 
-    <!-- USER/ADMIN SIDE -->
-    <div class="container">
-        <div class="row justify-content-center mb-5">
-            <div class="col-lg-12 col-12">
-                <a id="guestSideThumb" class="galleryThumb" href="#"
-                    data-gallery="../images\vettr\LogInPage.png, ../images\vettr\SignUpPage.png, ../images\vettr\HomePage.png, ../images\vettr\QR SCAN.png, ../images\vettr\PROFILE.png, ../images\vettr\ProfileScreen.png, ../images\vettr\CalenderScreen.png">
-                    <img src="../images\vettr\vettr_2.png" class="studentSideImage" alt="Guest Side">
-                </a>
-                <p class="tagText">Customer Side</p>
+    <!-- MAIN CONTENT -->
+    <main class="flex flex-col items-center">
+        <!-- TITLE -->
+        <h1 class="text-nuvi-gray text-6xl md:text-8xl lg:text-9xl font-normal text-center mb-5">VETTR</h1>
+
+        <!-- MOCK-UP -->
+        <div class="flex flex-col items-center w-full">
+            <img src="../images/vettr/cover_vettr.png" id="mockUp"
+                class="w-11/12 md:w-4/5 lg:w-3/4 max-w-4xl rounded-xl block mx-auto mb-8" alt="Splash">
+            <p class="text-nuvi-gray text-base md:text-lg lg:text-xl text-center max-w-3xl mx-auto mb-3">A Mobile-Based
+                Pet Vaccination and Deworming Information System Utilizing QR Code Technology for Record Digitalization.
+            </p>
+            <p class="text-nuvi-gray text-base md:text-lg lg:text-xl text-center max-w-3xl mx-auto mb-12">A QR
+                Code–Based Digital Pet Vaccination and Deworming Record System that will serve as a reliable digital
+                alternative to traditional paper-based vaccination booklets.</p>
+        </div>
+
+        <!-- USER SIDE - Note: This page has only one image section -->
+        <div class="w-11/12 md:w-4/5 lg:w-3/4 max-w-4xl mx-auto">
+            <div class="flex flex-col items-center mb-12">
+                <div class="w-full lg:w-2/3">
+                    <div class="relative w-full mb-3">
+                        <a id="guestSideThumb" class="galleryThumb block" href="#"
+                            data-gallery="../images/vettr/LogInPage.png, ../images/vettr/SignUpPage.png, ../images/vettr/HomePage.png, ../images/vettr/QR SCAN.png, ../images/vettr/PROFILE.png, ../images/vettr/ProfileScreen.png, ../images/vettr/CalenderScreen.png">
+                            <img src="../images/vettr/vettr_2.png" class="gallery-image w-full rounded-xl"
+                                alt="Customer Side">
+                            <p class="gallery-label">Customer Side</p>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- TECHNOLOGY USED -->
-    <div class="container">
-        <p class="text-center text-white" id="tagText">Technology Used</p>
-        <div class="row justify-content-center">
-            <p id="technologyItem">tech</p>
-            <p id="technologyItem">techtech</p>
-            <p id="technologyItem">techtechtech</p>
-            <p id="technologyItem">tech</p>
-        </div>
-        <div class="row justify-content-center">
-            <p id="technologyItem">techtechtech</p>
-            <p id="technologyItem">tech</p>
-            <p id="technologyItem">techtech</p>
-            <p id="technologyItem">tech</p>
-            <p id="technologyItem">techtech</p>
-        </div>
-    </div>
-
-    <!-- YEAR & CATEGORY -->
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col">
-            </div>
-            <div class="col">
-                <p class="tagText">Year</p>
-                <p class="tagText"><strong>2025</strong></p>
-            </div>
-            <div class="col">
-                <p class="tagText">Category</p>
-                <p class="tagText"><strong>Accessibility</strong></p>
-            </div>
-            <div class="col">
+        <!-- TECHNOLOGY USED -->
+        <div class="w-11/12 md:w-4/5 lg:w-3/4 max-w-4xl mx-auto">
+            <p class="text-center text-nuvi-gray text-lg md:text-xl mb-8">Technology Used</p>
+            <div class="flex flex-wrap justify-center gap-4 mb-6">
+                <span class="technologyItem">React Native</span>
+                <span class="technologyItem">Node.js</span>
+                <span class="technologyItem">Express</span>
+                <span class="technologyItem">MongoDB</span>
+                <span class="technologyItem">QR Code</span>
+                <span class="technologyItem">Firebase</span>
+                <span class="technologyItem">Push Notifications</span>
+                <span class="technologyItem">Tailwind CSS</span>
             </div>
         </div>
-    </div>
 
-    <footer>
-        <div id="footer"> </div>
+        <!-- YEAR & CATEGORY -->
+        <div class="w-11/12 md:w-4/5 lg:w-3/4 max-w-4xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16 mt-12">
+                <div class="text-center">
+                    <p class="text-nuvi-gray text-lg md:text-xl mb-2">Year</p>
+                    <p class="text-nuvi-gray text-xl md:text-2xl font-semibold">2025</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-nuvi-gray text-lg md:text-xl mb-2">Category</p>
+                    <p class="text-nuvi-gray text-xl md:text-2xl font-semibold">Accessibility</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="mt-16">
+        <div id="footer"></div>
     </footer>
 
-
+    <!-- IMAGE MODAL -->
     <div id="imageModal" class="imageModal" aria-hidden="true" role="dialog" aria-modal="true">
         <div class="modalOverlay" id="modalOverlay" tabindex="-1"></div>
 
