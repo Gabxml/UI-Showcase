@@ -91,8 +91,15 @@ body {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* ---------- CONTACT INFO ---------- */
@@ -159,6 +166,7 @@ body {
 
 
 /* ---------- INPUTS ---------- */
+/* ---------- INPUTS ---------- */
 .form-control,
 .form-select,
 textarea {
@@ -168,6 +176,16 @@ textarea {
     background: transparent;
     color: var(--text);
     transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Add placeholder styling directly to the same selectors */
+.form-control::placeholder,
+.form-select::placeholder,
+textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    /* Lighter placeholder text */
+    opacity: 1;
+    /* Ensure full visibility */
 }
 
 
@@ -331,7 +349,7 @@ textarea {
 }
 
 /* Make the slider container take full width */
-.budgetRow > div {
+.budgetRow>div {
     flex: 1;
     min-width: 0;
 }
@@ -460,36 +478,36 @@ textarea {
         flex-direction: column;
         gap: 0.5rem;
     }
-    
+
     .budgetRow {
         flex-direction: column;
         gap: 10px;
     }
-    
+
     .budgetNumber {
         max-width: 100%;
         width: 100%;
     }
-    
-    .budgetRow > div {
+
+    .budgetRow>div {
         width: 100%;
     }
-    
+
     .form-tabs {
         margin-left: 0;
         margin-top: 1rem;
         width: 100%;
     }
-    
+
     .d-flex.align-items-center {
         flex-direction: column;
         align-items: flex-start !important;
     }
-    
+
     .formTitle {
         margin-bottom: 1rem !important;
     }
-    
+
     .tab-btn {
         flex: 1;
         text-align: center;
@@ -504,18 +522,18 @@ textarea {
     .formTitle {
         font-size: 1.8rem;
     }
-    
+
     #heroTag {
         font-size: 2.5rem;
         margin-left: 5%;
         margin-right: 5%;
     }
-    
+
     .btn {
         width: 100%;
         margin-bottom: 0.5rem;
     }
-    
+
     .d-flex.gap-2 {
         flex-direction: column;
     }
